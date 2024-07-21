@@ -5,7 +5,7 @@ import { RootState } from "@/redux/store";
 
 const useAuthSession = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state: RootState) => state.auth.user);
+  const username = useSelector((state: RootState) => state.auth.user);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -35,7 +35,7 @@ const useAuthSession = () => {
     fetchUser();
   }, [dispatch]);
 
-  return user;
+  return { user: username };
 };
 
 export default useAuthSession;

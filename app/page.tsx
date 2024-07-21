@@ -10,7 +10,7 @@ const HomePage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
-  const user = useAuthSession();
+  const { user } = useAuthSession();
 
   const handleLogin = async () => {
     if (!username || !password) {
@@ -39,7 +39,9 @@ const HomePage = () => {
     }
   };
 
-  // console.log(user);
+  if (user) {
+    console.log("User:", user.username);
+  }
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
